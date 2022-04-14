@@ -17,7 +17,6 @@ const LoginComp = () => {
 
   const handleLogin = () => {
     signIn(email, password);
-    successNote("Login performed successfully.");
     navigate("/");
     console.log(currentUser);
   };

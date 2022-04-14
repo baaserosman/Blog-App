@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { writeUserData } from "../auth/firebase";
 import { AuthContext } from "../context/AuthContext";
 import { CardContext } from "../context/CardContext";
+import { toastNewBlog } from "../utils/customToastify";
 
 const NewBlog = () => {
   const { currentUser } = useContext(AuthContext);
@@ -35,6 +36,7 @@ const NewBlog = () => {
     console.log(email, id);
     // setAddCard({ ...addCard, id: id, email: email, date: dates });
     writeUserData(id, writeCard);
+    toastNewBlog("New Blog successfully added.");
     navigate("/");
     setAddCard({});
   };

@@ -26,7 +26,8 @@ import {
   get,
 } from "firebase/database";
 import { useEffect, useState } from "react";
-import { successNote } from "../utils/customToastify";
+import { useNavigate } from "react-router-dom";
+import { successNote, toastLogout } from "../utils/customToastify";
 // import { successNote } from "../utils/customToastify";
 
 //***************************************** */
@@ -72,6 +73,7 @@ export const signUpWithGoogle = () => {
 //!Logout
 export const logOut = () => {
   signOut(auth);
+  toastLogout("Logout completed.");
   // console.log(auth);
 };
 
@@ -108,7 +110,7 @@ export const signIn = async (email, password) => {
       email,
       password
     );
-
+    successNote("Login performed successfully.");
     console.log(userCredential);
   } catch (error) {
     console.log(error);

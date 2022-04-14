@@ -16,7 +16,7 @@ import { Box } from "@mui/system";
 
 const CardItem = ({ card }) => {
   const { image, text, title, email, date } = card;
-  console.log(card);
+  // console.log(card);
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
 
@@ -67,6 +67,9 @@ const CardItem = ({ card }) => {
             aria-controls="menu-appbar"
             aria-haspopup="true"
             color="inherit"
+            onClick={() => {
+              currentUser && navigate("/profile");
+            }}
           >
             <AccountCircle />
           </IconButton>
