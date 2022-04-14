@@ -26,6 +26,7 @@ import {
   get,
 } from "firebase/database";
 import { useEffect, useState } from "react";
+import { successNote } from "../utils/customToastify";
 // import { successNote } from "../utils/customToastify";
 
 //***************************************** */
@@ -171,7 +172,7 @@ export const deleteCard = (id) => {
   const db = getDatabase();
   // const userRef = ref(db, 'contact');
   remove(ref(db, "cards/" + id));
-  // successNote("Deleted");
+  successNote("Deleted");
 };
 
 //************************************ */

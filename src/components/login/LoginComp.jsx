@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { signIn, signUpWithGoogle } from "../../auth/firebase";
 import { AuthContext } from "../../context/AuthContext";
 import { Grid, TextField, Button, Box } from "@mui/material";
+import { successNote } from "../../utils/customToastify";
 
 const LoginComp = () => {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ const LoginComp = () => {
 
   const handleLogin = () => {
     signIn(email, password);
+    successNote("Login performed successfully.");
+    navigate("/");
     console.log(currentUser);
   };
 
