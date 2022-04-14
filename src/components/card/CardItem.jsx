@@ -11,6 +11,8 @@ import ShareIcon from "@mui/icons-material/Share";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { AccountCircle } from "@mui/icons-material";
+import "./card.css";
+import { Box } from "@mui/system";
 
 const CardItem = ({ card }) => {
   const { image, text, title, email, date } = card;
@@ -29,24 +31,34 @@ const CardItem = ({ card }) => {
 
   return (
     <Card
+      className="cardcont"
       sx={{
         maxWidth: 300,
         m: 3,
         boxShadow: "10px 10px 5px 0px #000000a9",
       }}
-      onClick={() => {
-        currentUser && navigate("/details", { state: card });
-      }}
     >
-      <CardMedia component="img" height="140" image={image} alt={title} />
-      <CardHeader sx={{ bgcolor: "#e7e6f5" }} title={title} subheader={date} />
-      <CardContent
-        sx={{ bgcolor: "#e7e6f5", overflow: "hidden", height: "3.6rem" }}
+      <Box
+        onClick={() => {
+          currentUser && navigate("/details", { state: card });
+        }}
+        className="cardbox"
       >
-        <Typography variant="body2" color="text.secondary">
-          {text}
-        </Typography>
-      </CardContent>
+        <CardMedia component="img" height="140" image={image} alt={title} />
+        <CardHeader
+          sx={{ bgcolor: "#e7e6f5" }}
+          title={title}
+          subheader={date}
+        />
+        <CardContent
+          sx={{ bgcolor: "#e7e6f5", overflow: "hidden", height: "3.6rem" }}
+        >
+          <Typography variant="body2" color="text.secondary">
+            {text}
+          </Typography>
+        </CardContent>
+      </Box>
+
       <CardContent sx={{ textAlign: "left", m: 0, p: 0 }}>
         <Typography variant="body2" color="text.secondary">
           <IconButton
