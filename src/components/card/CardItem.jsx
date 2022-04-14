@@ -20,14 +20,14 @@ const CardItem = ({ card }) => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
 
-  // const cardOnClick = () => {
-  //   if (currentUser) {
-  //     navigate("/details");
-  //   } else {
-  //     alert("Please Sign In..");
-  //     navigate("/login");
-  //   }
-  // };
+  const cardOnClick = () => {
+    if (currentUser) {
+      navigate("/details", { state: card });
+    } else {
+      alert("Please Sign In..");
+      navigate("/login");
+    }
+  };
 
   return (
     <Card
@@ -40,8 +40,11 @@ const CardItem = ({ card }) => {
     >
       <Box
         onClick={() => {
-          currentUser && navigate("/details", { state: card });
+          cardOnClick();
         }}
+        // onClick={() => {
+        //   currentUser && navigate("/details", { state: card });
+        // }}
         className="cardbox"
       >
         <CardMedia component="img" height="140" image={image} alt={title} />

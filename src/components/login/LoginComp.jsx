@@ -36,11 +36,7 @@ const LoginComp = () => {
             variant="outlined"
             type="email"
             required
-            // value={email}
             onChange={(e) => setEmail(e.target.value)}
-            // onBlur={handleBlur}
-            // helperText={touched.email && errors.email}
-            // error={touched.email && Boolean(errors.email)}
             fullWidth
           />
         </Grid>
@@ -52,11 +48,7 @@ const LoginComp = () => {
             variant="outlined"
             type="password"
             required
-            // value={password}
             onChange={(e) => setPassword(e.target.value)}
-            // onBlur={handleBlur}
-            // helperText={touched.password && errors.password}
-            // error={touched.password && Boolean(errors.password)}
             fullWidth
           />
         </Grid>
