@@ -52,7 +52,7 @@ const NewBlog = () => {
       <Box
         component="form"
         onSubmit={handleSubmit}
-        width="400px"
+        width="350px"
         sx={{
           p: 2,
           bgcolor: "white",
