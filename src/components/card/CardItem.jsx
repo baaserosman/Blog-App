@@ -33,7 +33,7 @@ const CardItem = ({ card }) => {
     <Card
       className="cardcont"
       sx={{
-        maxWidth: 300,
+        width: 300,
         m: 3,
         boxShadow: "10px 10px 5px 0px #000000a9",
       }}
