@@ -17,12 +17,12 @@ const LoginComp = () => {
 
   const handleLogin = () => {
     signIn(email, password);
-    navigate("/");
-    console.log(currentUser);
+    // console.log(currentUser);
   };
 
   const handleGoogleSingIn = () => {
     signUpWithGoogle();
+    currentUser && navigate("/");
   };
 
   return (

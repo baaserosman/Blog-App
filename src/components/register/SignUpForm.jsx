@@ -1,6 +1,6 @@
 import { Grid, TextField, Button } from "@mui/material";
 import { Form } from "formik";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser, signUpWithGoogle } from "../../auth/firebase";
 import { AuthContext } from "../../context/AuthContext";
@@ -8,17 +8,22 @@ import { AuthContext } from "../../context/AuthContext";
 const SignUpForm = (props) => {
   const { values, handleChange, handleBlur, errors, touched } = props;
   const navigate = useNavigate();
-  const currentUser = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    currentUser ? navigate("/") : navigate("/register");
+    console.log(currentUser);
+  }, [currentUser]);
 
   const handleRegister = () => {
     createUser(values.email, values.password);
-    navigate("/login");
-    // console.log(values.email, values.password);
+    // navigate("/");
+    console.log(values.email, values.password);
   };
 
   const handleGoogleSingIn = () => {
     signUpWithGoogle();
-    currentUser ? navigate("/") : alert("Login is Failed");
+    currentUser && navigate("/");
     // console.log(currentUser);
   };
 

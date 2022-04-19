@@ -8,6 +8,7 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 
 //! ========================================
@@ -27,7 +28,7 @@ import {
 } from "firebase/database";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { successNote, toastLogout } from "../utils/customToastify";
+import { successNote, toastError, toastLogout } from "../utils/customToastify";
 // import { successNote } from "../utils/customToastify";
 
 //***************************************** */
@@ -78,29 +79,33 @@ export const logOut = () => {
 };
 
 // //! Creating New User (Register)
-// export const createUser = async (email, password) => {
-//   try {
-//     await createUserWithEmailAndPassword(auth, email, password);
-//     await updateProfile(auth.currentUser);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 export const createUser = async (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      // const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-      // ..
-    });
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(auth.currentUser);
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    toastError(errorMessage);
+    console.log(errorCode, errorMessage);
+  }
 };
+
+// export const createUser = async (email, password) => {
+//   createUserWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       // Signed in
+//       // const user = userCredential.user;
+//       // ...
+//     })
+//     .catch((error) => {
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       toastError(errorMessage);
+//       console.log(errorCode, errorMessage);
+//       // ..
+//     });
+// };
 
 //!Sign in with email and password
 export const signIn = async (email, password) => {
@@ -113,8 +118,11 @@ export const signIn = async (email, password) => {
     successNote("Login performed successfully.");
     console.log(userCredential);
   } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    toastError(errorMessage);
     console.log(error);
-    alert("Login is failed!");
+    // alert("Login is failed!");
   }
 };
 
