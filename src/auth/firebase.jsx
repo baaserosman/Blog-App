@@ -86,8 +86,8 @@ export const createUser = async (email, password) => {
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
-    toastError(errorMessage);
-    console.log(errorCode, errorMessage);
+    // toastError(errorMessage);
+    // console.log(errorCode, errorMessage);
   }
 };
 
