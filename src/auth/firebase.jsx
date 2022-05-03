@@ -27,7 +27,7 @@ import {
   get,
 } from "firebase/database";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { successNote, toastError, toastLogout } from "../utils/customToastify";
 // import { successNote } from "../utils/customToastify";
 
@@ -87,7 +87,7 @@ export const createUser = async (email, password) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     // toastError(errorMessage);
-    // console.log(errorCode, errorMessage);
+    console.log(errorCode, errorMessage);
   }
 };
 
@@ -118,7 +118,7 @@ export const signIn = async (email, password) => {
     successNote("Login performed successfully.");
     console.log(userCredential);
   } catch (error) {
-    const errorCode = error.code;
+    // const errorCode = error.code;
     const errorMessage = error.message;
     toastError(errorMessage);
     console.log(error);

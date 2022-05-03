@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, TextField, Typography, Button } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { getDataForUpdate, updateCard } from "../auth/firebase";
+import { successNote } from "../utils/customToastify";
 
 const Update = () => {
   const navigate = useNavigate();
