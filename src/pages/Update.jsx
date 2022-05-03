@@ -21,7 +21,7 @@ const Update = () => {
 
   const handleSubmit = () => {
     const { id, title, image, text, email, date } = update;
-    console.log(id);
+    successNote("Blog successfully updated.");
     updateCard(id, title, image, text, email, date);
     navigate("/");
   };

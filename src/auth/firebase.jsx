@@ -182,7 +182,7 @@ export const deleteCard = (id) => {
   const db = getDatabase();
   // const userRef = ref(db, 'contact');
   remove(ref(db, "cards/" + id));
-  successNote("Deleted");
+  successNote("Blog deleted.");
 };
 
 //************************************ */
