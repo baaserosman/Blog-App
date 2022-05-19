@@ -1,10 +1,8 @@
 <a href="https://baschers-blog-app.netlify.app/" target="_blank" >
-<h3>BLOG APP</h3> </a>
-
-
+BLOG APP </a>
+<br>
+<br>
 <img align="center" src="https://blog.logrocket.com/wp-content/uploads/2020/08/8-ways-deploy-react-app-free.png"  width="75px" alt="img">
-
-
 
 # Getting Started with Create React App
 
